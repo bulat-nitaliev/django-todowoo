@@ -5,4 +5,15 @@
 <br>
 <h1>Current</h1>
 
+<ul>
+	{% for todo in todos %}
+	<li>
+		<a href="{% url 'viewtodo' todo.id %}">
+		{% if todo.importlant %}<b>{% endif %}{{ todo.title }}{% if todo.importlant %}</b>{% endif %}
+		{% if todo.memo %} - {{ todo.memo }}{% endif %}
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+
 {% endblock %}
